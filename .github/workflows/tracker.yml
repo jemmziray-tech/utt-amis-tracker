@@ -32,3 +32,9 @@ jobs:
           # The '|| exit 0' prevents the action from failing if the data hasn't changed since yesterday
           git commit -m "Data pipeline: Daily UTT AMIS NAV update" || exit 0
           git push
+
+      - name: Send Telegram Alert
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python notifier.py
