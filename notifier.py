@@ -103,7 +103,7 @@ def send_telegram_alert():
         image_path = create_chart_image(df)
 
         # 2. Change the Telegram API endpoint to sendPhoto
-        url = f"https://api.telegram.org/bot{bot_token}/sendPhoto"
+        url = f"https://api.telegram.org/bot{bot_token}/sendPhoto "
 
         # 3. Send the image with the text acting as the caption
         with open(image_path, "rb") as photo:
